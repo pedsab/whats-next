@@ -1,0 +1,14 @@
+{
+	"info": {
+		"_postman_id": "78f10e69-dfcc-4aef-ae6d-6fbd437d599d",
+		"name": "spotify",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "989186"
+	},
+	"item": [
+		{
+			"name": "playlist",
+			"item": []
+		}
+	]
+}
