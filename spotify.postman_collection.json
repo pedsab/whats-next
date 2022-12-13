@@ -8,7 +8,217 @@
 	"item": [
 		{
 			"name": "playlist",
-			"item": []
+			"item": [
+				{
+					"name": "Get Playlist Items",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "BQAYI_U6qwKbBtx-0m6kzip56QnOjAGRwYXzksdXBaD56Jpli-7rbDam6mqhaohkO4vuxaWMv5mPZ4vzfrSTkfF5BhlrrkNw-KFC8OVkf4UfilvbpgXimjpoyJnIHH5FtuY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.spotify.com/v1/playlists/7JQVomyJjl9Yb5ZkzUcPxW/tracks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"playlists",
+								"7JQVomyJjl9Yb5ZkzUcPxW",
+								"tracks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "token",
+			"item": [
+				{
+					"name": "token-clientcredentials-flow",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{spotify_api_clientsecret}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{spotify_api_clientid}}",
+									"type": "string"
+								},
+								{
+									"key": "saveHelperData",
+									"value": true,
+									"type": "boolean"
+								},
+								{
+									"key": "showPassword",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "user-read-private user-read-email",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://accounts.spotify.com/api/token",
+							"protocol": "https",
+							"host": [
+								"accounts",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"api",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "token-implicit-flow",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://accounts.spotify.com/authorize?response_type=token&client_id={{spotify_api_clientid}}&scope=user-read-private user-read-email&redirect_uri=http://localhost:8888/callback&state=123123123",
+							"protocol": "https",
+							"host": [
+								"accounts",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"authorize"
+							],
+							"query": [
+								{
+									"key": "response_type",
+									"value": "token"
+								},
+								{
+									"key": "client_id",
+									"value": "{{spotify_api_clientid}}"
+								},
+								{
+									"key": "scope",
+									"value": "user-read-private user-read-email"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "http://localhost:8888/callback"
+								},
+								{
+									"key": "state",
+									"value": "123123123"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Get Current User's Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "BQAYI_U6qwKbBtx-0m6kzip56QnOjAGRwYXzksdXBaD56Jpli-7rbDam6mqhaohkO4vuxaWMv5mPZ4vzfrSTkfF5BhlrrkNw-KFC8OVkf4UfilvbpgXimjpoyJnIHH5FtuY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.spotify.com/v1/me",
+							"protocol": "https",
+							"host": [
+								"api",
+								"spotify",
+								"com"
+							],
+							"path": [
+								"v1",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "spotify_api_clientid",
+			"value": "04babb9f4cb042caa68152e03c08bc88",
+			"type": "string"
+		},
+		{
+			"key": "spotify_api_clientsecret",
+			"value": "764b0d082bde4b59944035c35d3c2f0e",
+			"type": "string"
 		}
 	]
 }
